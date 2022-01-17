@@ -9,5 +9,7 @@
         @foreach($data as $item)
         <li>{{!! $item !!}}</li>
         @endforeach
+
+        <p><a href="/download">Download</a></p>
     </body>
 </html>

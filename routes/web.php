@@ -38,3 +38,7 @@ Route::get('/sample/other', [SampleController::class, 'other']);
 
 Route::get('/file', [FileAccessController::class, 'index'])->name('fileaccess');
 Route::get('/file/other/{msg}', [FileAccessController::class, 'other']);
+
+Route::get('/file2', [FileAccessController::class, 'index2'])->name('fileaccess2');
+Route::get('/file2/other/{msg}', [FileAccessController::class, 'other2']);
+Route::get('/download', [FileAccessController::class, 'download']);
