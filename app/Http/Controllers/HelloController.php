@@ -22,4 +22,16 @@ class HelloController extends Controller
     {
         return redirect()->route('hello');
     }
+
+    public function hello(Request $request)
+    {
+        $data = ['msg' => $request->hello];
+        return view ('hello.index', $data);
+    }
+
+    public function bye(Request $request)
+    {
+        $data = ['msg' => $request->bye];
+        return view('hello.index', $data);
+    }
 }
