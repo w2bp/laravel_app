@@ -62,4 +62,17 @@ class FileAccessController extends Controller
     public function download(){
         return Storage::disk('public')->download($this->public_fname);
     }
+
+    public function logs()
+    {
+        $dir = '/';
+        $all = Storage::disk('logs')->allfiles($dir);
+
+        $data = [
+            'msg' => 'DIR: ' . $dir,
+            'data' => $all,
+        ];
+
+        return view('sample.index', $data);
+    }
 }
