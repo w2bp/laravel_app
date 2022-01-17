@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\PersonController;
+use App\Http\Controllers\Sample\SampleController;
+use App\Http\Controllers\FileAccessController;
 use App\Http\Middleware\HelloMiddleware;
 
 /*
@@ -30,3 +32,9 @@ Route::middleware([HelloMiddleware::class])->group(function (){
 });
 
 Route::get('/person/{person}', [PersonController::class, 'index']);
+
+Route::get('/sample', [SampleController::class, 'index']);
+Route::get('/sample/other', [SampleController::class, 'other']);
+
+Route::get('/file', [FileAccessController::class, 'index'])->name('fileaccess');
+Route::get('/file/other/{msg}', [FileAccessController::class, 'other']);
