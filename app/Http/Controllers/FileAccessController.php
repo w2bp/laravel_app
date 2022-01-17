@@ -29,8 +29,9 @@ class FileAccessController extends Controller
 
     public function other($msg)
     {
-        $data = Storage::get($this->fname) . PHP_EOL . $msg;
-        Storage::put($this->fname, $data);
+        // $data = Storage::get($this->fname) . PHP_EOL . $msg;
+        // Storage::put($this->fname, $data);
+        Storage::append($this->fname, $msg);
 
         return redirect()->route('fileaccess');
     }
