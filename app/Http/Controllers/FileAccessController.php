@@ -79,4 +79,14 @@ class FileAccessController extends Controller
 
         return view('sample.index', $data);
     }
+
+    public function flash(Request $request)
+    {
+        $data = [
+            'msg' => 'Old:' . old('name') . old('mail') . old('tel'),
+        ];
+
+        $request->flash();
+        return view('sample.index', $data);
+    }
 }

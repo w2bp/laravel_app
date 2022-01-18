@@ -44,3 +44,5 @@ Route::get('/file2/other/{msg}', [FileAccessController::class, 'other2']);
 Route::get('/download', [FileAccessController::class, 'download']);
 
 Route::get('/logs', [FileAccessController::class, 'logs']);
+
+Route::post('/flash', [FileAccessController::class, 'flash']);
