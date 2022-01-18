@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
 
 class FileAccessController extends Controller
@@ -63,7 +64,7 @@ class FileAccessController extends Controller
         return Storage::disk('public')->download($this->public_fname);
     }
 
-    public function logs()
+    public function logs(Response $response)
     {
         $dir = '/';
         $all = Storage::disk('logs')->allfiles($dir);
@@ -72,6 +73,9 @@ class FileAccessController extends Controller
             'msg' => 'DIR: ' . $dir,
             'data' => $all,
         ];
+
+        // $response->setContent('<h1>THIS IS A TEST</h1>');
+        // return $response;
 
         return view('sample.index', $data);
     }
