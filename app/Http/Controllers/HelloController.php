@@ -11,7 +11,7 @@ class HelloController extends Controller
     
     function __construct(MyServiceInterface $myservice)
     {
-        $myservice = app('App\MyClasses\MyService');
+        $myservice = app('App\MyClasses\PowerMyService');
     }
 
     //

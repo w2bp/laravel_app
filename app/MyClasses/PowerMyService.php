@@ -7,10 +7,14 @@ class PowerMyService implements MyServiceInterface
     private $id = -1;
     private $msg = 'no id..';
     private $data = ['いちご', 'りんご', 'バナナ', 'みかん', 'ぶどう'];
+    private $serial;
 
     function __construct()
     {
         $this->setid(rand(0, count($this->data)));
+
+        $this->serial = rand();
+        echo "[" . $this->serial . "]";
     }
 
     public function setId($id)
@@ -30,6 +34,11 @@ class PowerMyService implements MyServiceInterface
     public function data(int $id)
     {
         return $this->data[$id];
+    }
+
+    public function setData($data)
+    {
+        $this->data = $data;
     }
 
     public function allData()
