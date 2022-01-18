@@ -16,8 +16,8 @@ class MyService implements MyServiceInterface
         $this->msg = 'Hello! This is MyService!!';
         $this->data = ['Hello', 'Welcome', 'Bye'];
 
-        $this->serial = rand();
-        echo "[" . $this->serial . "]";
+        // $this->serial = rand();
+        // echo "[" . $this->serial . "]";
     }
 
     // public static function getInstance()

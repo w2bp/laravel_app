@@ -26,23 +26,23 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        app()->singleton('App\MyClasses\MyServiceInterface', 'App\MyClasses\PowerMyService');
+        // app()->singleton('App\MyClasses\MyServiceInterface', 'App\MyClasses\PowerMyService');
 
-        app()->resolving(function($obj, $app){
-            if(is_object($obj))
-            {
-                echo get_class($obj) . '<br/>';
-            }
-            else
-            {
-                echo $obj . '<br/>';
-            }
-        });
+        // app()->resolving(function($obj, $app){
+        //     if(is_object($obj))
+        //     {
+        //         echo get_class($obj) . '<br/>';
+        //     }
+        //     else
+        //     {
+        //         echo $obj . '<br/>';
+        //     }
+        // });
 
-        app()->resolving(PowerMyService::class, function($obj, $app){
-            $newdata = ['ハンバーグ', 'カレーライス', '唐揚げ', '餃子'];
-            $obj->setData($newdata);
-            $obj->setId(rand(0, count($newdata)));
-        });
+        // app()->resolving(PowerMyService::class, function($obj, $app){
+        //     $newdata = ['ハンバーグ', 'カレーライス', '唐揚げ', '餃子'];
+        //     $obj->setData($newdata);
+        //     $obj->setId(rand(0, count($newdata)));
+        // });
     }
 }

@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\MyClasses\MyService;
 use App\MyClasses\MyServiceInterface;
+use App\MyClasses\PowerMyService;
 
 class HelloController extends Controller
 {
     
-    function __construct(MyServiceInterface $myservice)
+    function __construct(PowerMyService $myservice)
     {
         $myservice = app('App\MyClasses\PowerMyService');
     }
@@ -43,7 +44,7 @@ class HelloController extends Controller
         return view('sample.index', $data);
     }
 
-    public function service(MyServiceInterface $myservice, $id = -1)
+    public function service(PowerMyService $myservice, $id = -1)
     {
         // $myservice->setId($id);
 
