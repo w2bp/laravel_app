@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\MyClasses\MyService;
 
 class HelloController extends Controller
 {
@@ -32,6 +33,18 @@ class HelloController extends Controller
     public function bye(Request $request)
     {
         $data = ['msg' => $request->bye];
+        return view('sample.index', $data);
+    }
+
+    public function service(MyService $myservice, $id = -1)
+    {
+        $myservice->setId($id);
+
+        $data = [
+            'msg' => $myservice->say(),
+            'data' => $myservice->data()
+        ];
+
         return view('sample.index', $data);
     }
 }

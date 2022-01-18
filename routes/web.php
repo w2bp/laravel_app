@@ -46,3 +46,5 @@ Route::get('/download', [FileAccessController::class, 'download']);
 Route::get('/logs', [FileAccessController::class, 'logs']);
 
 Route::post('/flash', [FileAccessController::class, 'flash']);
+
+Route::get('/service/{id}', [HelloController::class, 'service']);
