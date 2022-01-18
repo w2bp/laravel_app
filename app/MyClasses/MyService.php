@@ -2,17 +2,28 @@
 
 namespace App\MyClasses;
 
-class MyService
+class MyService implements MyServiceInterface
 {
     private $id;
     private $msg;
     private $data;
+    private $serial;
 
-    public function __construct()
+    private $myservice;
+
+    function __construct()
     {
         $this->msg = 'Hello! This is MyService!!';
         $this->data = ['Hello', 'Welcome', 'Bye'];
+
+        $this->serial = rand();
+        echo "[" . $this->serial . "]";
     }
+
+    // public static function getInstance()
+    // {
+    //     return self::$myservice ?? self::$myservice = new MyService();
+    // }
 
     public function setId($id)
     {
@@ -28,8 +39,12 @@ class MyService
         return $this->msg;
     }
 
-    public function data()
+    public function data(int $id)
     {
+        return $this->data[$id];
+    }
+
+    public function allData(){
         return $this->data;
     }
 }

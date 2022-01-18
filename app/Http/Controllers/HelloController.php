@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\MyClasses\MyService;
+use App\MyClasses\MyServiceInterface;
 
 class HelloController extends Controller
 {
+    
+    function __construct(MyServiceInterface $myservice)
+    {
+        $myservice = app('App\MyClasses\MyService');
+    }
+
     //
     public function index($id)
     {
@@ -36,13 +43,13 @@ class HelloController extends Controller
         return view('sample.index', $data);
     }
 
-    public function service(MyService $myservice, $id = -1)
+    public function service(MyServiceInterface $myservice, $id = -1)
     {
-        $myservice->setId($id);
+        // $myservice->setId($id);
 
         $data = [
             'msg' => $myservice->say(),
-            'data' => $myservice->data()
+            'data' => $myservice->allData()
         ];
 
         return view('sample.index', $data);
